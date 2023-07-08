@@ -1,19 +1,23 @@
 from setuptools import setup
 import subprocess
 
+
 def get_latest_git_tag():
     try:
         version = subprocess.check_output(["git", "describe", "--tags", "--abbrev=0"])
-        version = version.strip().decode("utf-8")  # Remove trailing newline and decode bytes to string
+        version = version.strip().decode(
+            "utf-8"
+        )  # Remove trailing newline and decode bytes to string
 
         # Remove the 'v' from the tag
-        if version.startswith('v'):
+        if version.startswith("v"):
             version = version[1:]
 
         return version
     except Exception as e:
         print(f"An exception occurred while getting the latest git tag: {e}")
         return None
+
 
 VERSION = get_latest_git_tag() or "0.0.1"  # Fallback version
 PROJECT_URLS = {
@@ -24,10 +28,10 @@ PROJECT_URLS = {
 setup(
     name="omnivorex",
     version=VERSION,
-    description='Omnivore Terminal App - Text User Interface',
-    author='Shahriar Yazdipour',
-    author_email='git@yazdipour.com',
-    packages=['omnivorex'],
+    description="Omnivore Terminal App - Text User Interface",
+    author="Shahriar Yazdipour",
+    author_email="git@yazdipour.com",
+    packages=["src/omnivorex"],
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     license="MIT",
@@ -41,13 +45,13 @@ setup(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
     ],
-    python_requires='>=3.6',
+    python_requires=">=3.6",
     install_requires=[
-        'omnivoreql>=0.2.1',
+        "omnivoreql>=0.2.1",
     ],
     entry_points={
-        'console_scripts': [
-            'omnivorex=omnivorex.omnivorex:omnivorex',
+        "console_scripts": [
+            "omnivorex=omnivorex.omnivorex:omnivorex",
         ],
     },
 )

@@ -8,7 +8,29 @@ from textual import events
 
 
 class LoginScreen(ModalScreen[str]):
-    CSS_PATH = "styles/login_screen.css"
+    DEFAULT_CSS = """
+    LoginScreen {
+        layout: vertical;
+        align: center middle;
+        border: thick $background 80%;
+        background: $surface;
+    }
+    LoginScreen * {
+        text-align: center;
+        max-width: 40;
+        align: center middle;
+        width: 100%;
+    }
+    .hidden {
+        display: none;   
+    }
+    #error {
+        color: red;
+    }
+    #login {
+        width: 100%;
+    }
+    """
 
     def compose(self):
         yield Static("Enter your Omnivore API Token:")
