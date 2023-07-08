@@ -1,1 +1,4 @@
-omnivoreql
+python-dotenv
+omnivoreql>=0.1.5
+html2text
+textual==0.29.0
