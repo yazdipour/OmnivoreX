@@ -12,7 +12,7 @@ python -m textual
 
 ```bash
 pip install textual-dev
-textual run --dev main.py
+textual run --dev main_screen.py
 ```
 
 ## Mounting
