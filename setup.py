@@ -1,24 +1,40 @@
-from setuptools import setup, find_packages
-import os
+from setuptools import setup
+import subprocess
 
-# Get version from __version__.py file
-current_folder = os.path.abspath(os.path.dirname(__file__))
-about = {}
-with open(os.path.join(current_folder, "omnivoreql", "__version__.py")) as f:
-    exec(f.read(), about)
+def get_latest_git_tag():
+    try:
+        version = subprocess.check_output(["git", "describe", "--tags", "--abbrev=0"])
+        version = version.strip().decode("utf-8")  # Remove trailing newline and decode bytes to string
+
+        # Remove the 'v' from the tag
+        if version.startswith('v'):
+            version = version[1:]
+
+        return version
+    except Exception as e:
+        print(f"An exception occurred while getting the latest git tag: {e}")
+        return None
+
+VERSION = get_latest_git_tag() or "0.0.1"  # Fallback version
+PROJECT_URLS = {
+    "Bug Tracker": "https://github.com/yazdipour/OmnivoreX/issues",
+    "Source Code": "https://github.com/yazdipour/OmnivoreX",
+}
 
 setup(
     name="omnivorex",
-    version=about["__version__"],
-    description='Omnivore API Client for Python',
+    version=VERSION,
+    description='Omnivore Terminal Application',
     author='Shahriar Yazdipour',
     author_email='git@yazdipour.com',
-    packages=find_packages(),
+    packages=['omnivorex'],
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     license="MIT",
-    keywords="omnivore cli terminal readlater client",
-    url="https://github.com/yazdipour/omnivorex",
+    keywords="omnivore cli terminal readlater client rich textualize textual",
+    url=PROJECT_URLS["Source Code"],
+    project_urls=PROJECT_URLS,
+    python_requires=">=3",
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
