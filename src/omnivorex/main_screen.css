@@ -1,0 +1,17 @@
+.horizontalContainer {
+    layout: horizontal;
+    height: 100%;
+}
+
+#markdown {
+    width: 3fr;
+}
+
+#left_container Button {
+    width: 100%;
+    height: 3;
+}
+ScrollableContainer {
+    scrollbar-background: $surface;
+    scrollbar-color: $surface-lighten-2;
+}
