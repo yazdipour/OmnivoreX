@@ -10,7 +10,12 @@ from textual.containers import Container
 import os
 import sys
 
-sys.path.append(os.path.abspath("./"))
+# TODO: fix this hack with a proper setup.py
+# Things to do: In setup.py, add a command to copy the components folder to the site-packages folder
+# Then, in omnivorex.py, add the site-packages folder to the sys.path
+# This will allow the components folder to be imported from anywhere
+# Use this as a reference: https://stackoverflow.com/questions/6323860/sibling-package-imports
+sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 import utils
 from components.article_item import ArticleItem
 from components.login_screen import LoginScreen
