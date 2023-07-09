@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 import subprocess
 
 
@@ -31,7 +31,7 @@ setup(
     description="Omnivore Terminal App - Text User Interface",
     author="Shahriar Yazdipour",
     author_email="git@yazdipour.com",
-    packages=["src/omnivorex"],
+    packages=["src.omnivorex"],
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     license="MIT",
@@ -45,13 +45,14 @@ setup(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
     ],
-    python_requires=">=3.6",
     install_requires=[
+        "python-dotenv",
         "omnivoreql>=0.2.1",
+        "textual==0.29.0",
     ],
     entry_points={
         "console_scripts": [
-            "omnivorex=omnivorex.omnivorex:omnivorex",
+            "omnivorex=src.omnivorex.__main__:main",
         ],
     },
 )
