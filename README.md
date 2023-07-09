@@ -16,7 +16,7 @@ pip install omnivorex
 
 ## Usage
 
-1. Get your Omnivore API Key from [here](https://dashboard.omnivore.io/developers).
+1. Get your Omnivore API Key from [here](https://omnivore.app/settings/api).
 
 2. Run the command:
 
@@ -26,4 +26,4 @@ omnivorex
 
 ## Screenshots
 
-![OmnivoreX](/docs/screenshots/omnivorex.png)
+![OmnivoreX](https://raw.githubusercontent.com/yazdipour/OmnivoreX/main/docs/screenshots/omnivorex.png)
