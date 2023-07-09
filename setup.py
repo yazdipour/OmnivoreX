@@ -39,6 +39,7 @@ setup(
     url=PROJECT_URLS["Source Code"],
     project_urls=PROJECT_URLS,
     python_requires=">=3",
+    include_dirs=["omnivorex"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",

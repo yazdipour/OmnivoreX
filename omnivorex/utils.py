@@ -1,6 +1,6 @@
-from omnivoreql import OmnivoreQL
 import os
 from dotenv import load_dotenv
+from omnivoreql import OmnivoreQL
 
 __client = None
 __username = None
@@ -40,7 +40,7 @@ def get_client() -> OmnivoreQL:
     return __client
 
 
-def get_articles(limit: int, cursor: int = 0, query="in:inbox") -> list[dict]:
+def get_articles(limit: int, cursor: int = 0, query="in:inbox"):
     return get_client().get_articles(cursor=str(cursor), limit=limit, query=query)[
         "search"
     ]["edges"]

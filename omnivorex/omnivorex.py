@@ -8,18 +8,38 @@ from textual.widgets import (
 )
 from textual.containers import Container
 import os
-from components import *
+from components.article_item import ArticleItem
+from components.login_screen import LoginScreen
 import utils
 
 
 class OmnivoreX(App):
     TITLE = "OmnivoreX"
-    CSS_PATH = "main_screen.css"
     DEFAULT_LIMIT = 42
     OPENED_ARTICLE: ArticleItem = None
-    WelcomePageMDContent = open(
-        os.path.join(os.path.dirname(__file__), "Welcome.md"), "r"
-    ).read()
+    WelcomePageMDContent = ""
+    welcome_path = os.path.join(os.path.dirname(__file__), "Welcome.md")
+    if os.path.exists(welcome_path):
+        WelcomePageMDContent = open(welcome_path, "r").read()
+    CSS = """
+        .horizontalContainer {
+            layout: horizontal;
+            height: 100%;
+        }
+
+        #markdown {
+            width: 3fr;
+        }
+
+        #left_container Button {
+            width: 100%;
+            height: 3;
+        }
+        ScrollableContainer {
+            scrollbar-background: $surface;
+            scrollbar-color: $surface-lighten-2;
+        }
+    """
     MARKDOWN_VIEWER: MarkdownViewer = MarkdownViewer(
         id="markdown", show_table_of_contents=False
     )
