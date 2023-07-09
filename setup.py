@@ -52,7 +52,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "omnivorex=omnivorex.__main__:main",
+            "omnivorex=omnivorex.omnivorex:main",
         ],
     },
 )

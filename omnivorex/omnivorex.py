@@ -139,5 +139,9 @@ class OmnivoreX(App):
         )
 
 
-if __name__ == "__main__":
+def main():
     OmnivoreX().run()
+
+
+if __name__ == "__main__":
+    main()
