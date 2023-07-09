@@ -1,20 +1,12 @@
-from textual.app import App, ComposeResult
+from textual.app import App
 from textual.widgets import (
-    Input,
     Footer,
     Header,
     Button,
-    Static,
     MarkdownViewer,
-    Markdown,
     ListView,
-    ListItem,
-    Label,
 )
-from textual.containers import Container, Horizontal, ScrollableContainer, Grid
-from textual.reactive import reactive
-from textual.screen import ModalScreen
-from textual import on
+from textual.containers import Container
 import os
 from .components.login_screen import LoginScreen
 from .components.article_item import ArticleItem
