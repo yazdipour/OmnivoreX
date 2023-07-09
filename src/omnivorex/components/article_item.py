@@ -14,10 +14,10 @@ class ArticleItem(ListItem):
     }
     """
 
-    def __init__(self, label: str, uid: str) -> None:
+    def __init__(self, label: str, details: str) -> None:
         super().__init__()
         self.label = label
-        self.uid = uid
+        self.details = details
 
     def compose(self) -> ComposeResult:
         yield Label(self.label)

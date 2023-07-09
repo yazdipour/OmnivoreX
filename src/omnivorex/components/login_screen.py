@@ -34,7 +34,7 @@ class LoginScreen(ModalScreen[str]):
 
     def compose(self):
         yield Static("Enter your Omnivore API Token:")
-        yield Input(placeholder="Token", password=True)
+        yield Input(placeholder="Token")
         yield Static("Please enter a valid API token!", classes="hidden", id="error")
         yield Button("Login", variant="primary", id="login")
 
