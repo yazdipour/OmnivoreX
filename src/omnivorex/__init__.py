@@ -1,1 +1,1 @@
-from main_screen import OmnivoreX
+from .main_screen import OmnivoreX
