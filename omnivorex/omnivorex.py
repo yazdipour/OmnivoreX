@@ -8,9 +8,12 @@ from textual.widgets import (
 )
 from textual.containers import Container
 import os
+import sys
+
+sys.path.append(os.path.abspath("./"))
+import utils
 from components.article_item import ArticleItem
 from components.login_screen import LoginScreen
-import utils
 
 
 class OmnivoreX(App):
