@@ -8,9 +8,9 @@ from textual.widgets import (
 )
 from textual.containers import Container
 import os
-from .components.login_screen import LoginScreen
-from .components.article_item import ArticleItem
-from .utils import _omnivoerql_utils
+from article_item import ArticleItem
+from login_screen import LoginScreen
+from utils import _omnivoerql_utils
 
 
 class OmnivoreX(App):
