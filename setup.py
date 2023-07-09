@@ -31,7 +31,7 @@ setup(
     description="Omnivore Terminal App - Text User Interface",
     author="Shahriar Yazdipour",
     author_email="git@yazdipour.com",
-    packages=["src.omnivorex"],
+    packages=["omnivorex"],
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     license="MIT",
@@ -52,7 +52,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "omnivorex=src.omnivorex.__main__:main",
+            "omnivorex=omnivorex.__main__:main",
         ],
     },
 )
