@@ -8,9 +8,8 @@ from textual.widgets import (
 )
 from textual.containers import Container
 import os
-from components.article_item import ArticleItem
-from components.login_screen import LoginScreen
-from omnivorex import utils
+from components import *
+import utils
 
 
 class OmnivoreX(App):
@@ -36,6 +35,7 @@ class OmnivoreX(App):
         ("s", "settings", "Settings"),
         ("t", "toggle_theme", "Toggle theme"),
         ("q", "quit", "Quit"),
+        ("x", "quit", "Quit"),
     ]
 
     # ------------------
