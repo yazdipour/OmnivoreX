@@ -15,7 +15,7 @@ pip install textual-dev
 textual run --dev main_screen.py
 ```
 
-## Mounting
+## Mounting new widgets
 
 While composing is the preferred way of adding widgets when your app starts it is sometimes necessary to add new widget(s) in response to events. You can do this by calling mount() which will add a new widget to the UI.
 
@@ -39,4 +39,3 @@ class WelcomeApp(App):
         await self.mount(Welcome())
         self.query_one(Button).label = "YES!"
 ```
-
