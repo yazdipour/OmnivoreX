@@ -3,7 +3,6 @@ from textual.widgets import (
     ListItem,
     Label,
 )
-from utils._omnivoerql_utils import *
 from enum import Enum
 
 
