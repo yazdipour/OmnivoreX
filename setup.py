@@ -31,7 +31,7 @@ setup(
     description="Omnivore Terminal App - Text User Interface",
     author="Shahriar Yazdipour",
     author_email="git@yazdipour.com",
-    packages=find_packages("omnivorex"),
+    packages=find_packages(include=["omnivorex*"]),
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     license="MIT",

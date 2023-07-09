@@ -1,2 +1,1 @@
-from .omnivorex import OmnivoreX
-from .components import *
+from .omnivorex import *
