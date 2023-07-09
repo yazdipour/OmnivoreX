@@ -1,4 +1,3 @@
 python-dotenv
-omnivoreql>=0.1.5
-html2text
+omnivoreql>=0.2.1
 textual==0.29.0
