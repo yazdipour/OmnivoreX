@@ -16,9 +16,9 @@ from textual.reactive import reactive
 from textual.screen import ModalScreen
 from textual import on
 import os
-from components.login_screen import LoginScreen
-from components.article_item import ArticleItem
-from utils import _omnivoerql_utils
+from .components.login_screen import LoginScreen
+from .components.article_item import ArticleItem
+from .utils import _omnivoerql_utils
 
 
 class OmnivoreX(App):
