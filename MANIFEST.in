@@ -1,10 +1,8 @@
 include MANIFEST.in
-include omnivorex/__version__.py
-
 include LICENSE
 include README.md
-include CONTRIBUTING.md
-
 include requirements.txt
+recursive-include omnivorex *
 
-recursive-include docs *
+# exclude from sdist
+exclude CONTRIBUTING.md
