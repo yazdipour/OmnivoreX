@@ -8,9 +8,9 @@ from textual.widgets import (
 )
 from textual.containers import Container
 import os
-from article_item import ArticleItem
-from login_screen import LoginScreen
-from utils import _omnivoerql_utils
+from .components.article_item import ArticleItem
+from .components.login_screen import LoginScreen
+import __utils
 
 
 class OmnivoreX(App):
@@ -29,8 +29,8 @@ class OmnivoreX(App):
         ("u", "scroll('up')", "▲"),
         ("j", "scroll('down')", "▼"),
         ("d", "scroll('down')", "▼"),
-        ("h", "scroll('home')", "⇈"),
-        ("g", "scroll('end')", "⇊"),
+        ("h", "scroll('home')", "▲▲"),
+        ("g", "scroll('end')", "▼▼"),
         ("a", "archive", "un/Archive"),
         ("r", "refresh", "Refresh"),
         ("s", "settings", "Settings"),
@@ -61,7 +61,7 @@ class OmnivoreX(App):
         self.dark = not self.dark
 
     def on_mount(self):
-        if not _omnivoerql_utils.is_logged_in():
+        if not __utils.is_logged_in():
             self.action_settings()
         else:
             self.action_refresh()
@@ -72,7 +72,7 @@ class OmnivoreX(App):
 
     def action_settings(self) -> None:
         def set_api_token(token: str) -> None:
-            _omnivoerql_utils.save_token(token)
+            __utils.save_token(token)
             self.action_refresh()
 
         self.push_screen(LoginScreen(), set_api_token)
@@ -80,13 +80,13 @@ class OmnivoreX(App):
     def action_refresh(self) -> None:
         self.query_one("#list_view").clear()
         self.MARKDOWN_VIEWER.document.update(self.WelcomePageMDContent)
-        articles = _omnivoerql_utils.get_articles(limit=self.DEFAULT_LIMIT)
+        articles = __utils.get_articles(limit=self.DEFAULT_LIMIT)
         self.populate_listview(articles)
 
     def action_archive(self) -> None:
         if self.OPENED_ARTICLE is not None:
             article = self.OPENED_ARTICLE.details
-            _omnivoerql_utils.archive_article(
+            __utils.archive_article(
                 article["node"]["id"], not article["node"]["isArchived"]
             )
             article["node"]["isArchived"] = not article["node"]["isArchived"]
@@ -120,9 +120,7 @@ class OmnivoreX(App):
         self.OPENED_ARTICLE = event.item
         self.OPENED_ARTICLE.set_status(ArticleItem.ArticleStatus.READING)
         self.MARKDOWN_VIEWER.document.update(
-            _omnivoerql_utils.get_article_by_slug(
-                self.OPENED_ARTICLE.details["node"]["slug"]
-            )[0]
+            __utils.get_article_by_slug(self.OPENED_ARTICLE.details["node"]["slug"])[0]
         )
 
     def populate_listview(self, list_articles):
@@ -134,9 +132,7 @@ class OmnivoreX(App):
     def load_more(self):
         lv = self.query_one("#list_view", ListView)
         cursor = 0 if len(lv.children) == 0 else lv.children[-1].details["cursor"]
-        self.populate_listview(
-            _omnivoerql_utils.get_articles(cursor, self.DEFAULT_LIMIT)
-        )
+        self.populate_listview(__utils.get_articles(cursor, self.DEFAULT_LIMIT))
 
 
 def main():
