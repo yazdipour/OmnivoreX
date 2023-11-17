@@ -1,3 +1,6 @@
 python-dotenv
 omnivoreql>=0.2.1
 textual==0.29.0
+setuptools
+wheel
+twine
