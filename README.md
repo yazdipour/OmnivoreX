@@ -1,5 +1,7 @@
 # OmnivoreX
 
+![OmnivoreX Icon](https://github.com/yazdipour/OmnivoreX/assets/8194807/06955f7a-1c13-44cd-8800-882702954383)
+
 [Omnivore](https://omnivore.app/) Text User Interface (TUI) for the Omnivore API using the [OmnivoreQL](https://github.com/yazdipour/OmnivoreQL).
 
 Do not forget to STAR and Support the project:
